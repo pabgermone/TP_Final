@@ -1,6 +1,7 @@
 package paradigmas.tpFinal.model.cliente;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Pablo Germone
@@ -30,18 +31,33 @@ public class Cliente {
      *                      TABLE: ??
      */
     @Id
-    @Column(name="ClienteID")
+    @Column(name="ClienteID", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="ClienteDNI")
+    @Column(name="ClienteDNI", nullable = false)
     private int dni;
 
-    @Column(name="ClienteNombre")
+    @Column(name="ClienteNombre", nullable = false)
     private String nombre;
 
-    @Column(name="ClienteApellido")
+    @Column(name="ClienteApellido", nullable = false)
     private String apellido;
+
+    /**
+     * @OneToMany se usa para las tablas que tienen una relacion de muchos a uno con otra tabla.
+     * El FetchType indica la forma en que se realizan las consultas al hacer uso de la entidad:
+     *      EAGER indica que al hacer una consulta tambien se consultara por todas las colecciones de la entidad
+     *      LAZY indica que los elementos de las colecciones de la entidad se iran consultando a medida que se
+     *      necesiten.
+     * El mappedBy indica el nombre de la variable que referencia a la ForeignKey en la tabla que esta del lado
+     * "muchos" de la relacion.
+     * El targetEntity indica con que entidad del programa se relaciona
+     *
+     * Generalmente esta etiqueta se usa con una lista en la parte "uno" de la relacion
+     */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente", targetEntity = Turno.class)
+    private List<Turno> turnos;
 
 
     public int getId() {
@@ -77,6 +93,11 @@ public class Cliente {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+
+    public List<Turno> getTurnos() {
+        return turnos;
     }
 
 
