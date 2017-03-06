@@ -1,5 +1,7 @@
 package paradigmas.tpFinal.model.cliente;
 
+import paradigmas.tpFinal.model.turno.Turno;
+
 import javax.persistence.*;
 import java.util.List;
 

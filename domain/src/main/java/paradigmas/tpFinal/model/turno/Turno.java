@@ -1,4 +1,6 @@
-package paradigmas.tpFinal.model.cliente;
+package paradigmas.tpFinal.model.turno;
+
+import paradigmas.tpFinal.model.cliente.Cliente;
 
 import javax.persistence.*;
 import java.util.Date;
