@@ -25,6 +25,13 @@ public class Turno {
     @Column(name = "TurnoCancelacion")
     private Date cancelacion;
 
+    /**
+     * @ManyToOne se usa para las relaciones muchos a uno
+     * targetEntity indica el nombre con la que se esta relacionando
+     *
+     * @JoinColumn indica que esta propiedad representa la columna de la tabla que se usa como Foreign de la
+     * otra tabla.
+     */
     @ManyToOne(targetEntity = Cliente.class)
     @JoinColumn(name = "TurnoClienteId")
     private Cliente cliente;
