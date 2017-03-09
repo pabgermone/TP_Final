@@ -47,7 +47,7 @@
                                                             <spring-framework.version> -->
         </dependency>
 
-        <!-- Spring Tx: Sirve para el manejo de transacciones en clases que implementen interfaces interfaces especiales (?)
+        <!-- Spring Tx: Sirve para el manejo de transacciones en clases que implementen interfaces especiales (?)
         y para todos los objetos POJO del programa -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -98,6 +98,15 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- c3p0 es una API usada para manejar pools de la base. Los pools son instancias de conexiones
+        a la base que se mantienen abiertas por si se necesitan mas tarde, para no tener que abrir y cerrar
+        las conexiones cada vez que se usan y dejan de usar por algun proceso. -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 
